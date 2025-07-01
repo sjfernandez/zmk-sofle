@@ -46,6 +46,17 @@
         quick-tap-ms = <125>;
     };
 
+    tap_layer: tap_layer {
+        compatible = "zmk,behavior-hold-tap";
+        label = "TAP_LAYER";
+        bindings = <&mo>, <&kp>;
+
+        #binding-cells = <2>;
+        tapping-term-ms = <280>;
+        quick-tap-ms = <125>;
+        flavor = "balanced";
+    };
+
     behaviors {
     };
 
@@ -54,11 +65,11 @@
 
         layer0 {
             bindings = <
-&kp ESC     &kp N1        &kp N2        &kp N3     &kp N4                &kp N5    &kp UP_ARROW     &kp N6  &kp N7                 &kp N8         &kp N9           &kp N0         &kp BACKSPACE
-&kp TAB     &kp Q         &kp W         &kp F      &kp P                 &kp B     &kp DOWN_ARROW   &kp J   &kp L                  &kp U          &kp Y            &kp SEMICOLON  &kp BSLH
-&kp LCTRL   &kp A         &kp R         &kp S      &my_tap LEFT_SHIFT T  &kp G     &kp LEFT_ARROW   &kp M   &my_tap RIGHT_SHIFT N  &kp E          &kp I            &kp O          &kp APOS
-&kp LSHFT   &kp Z         &kp X         &kp C      &kp D                 &kp V     &kp RIGHT_ARROW  &kp K   &kp H                  &kp COMMA      &kp DOT          &kp FSLH       &kp ENTER
-&kp C_MUTE  &kp LEFT_WIN  &kp LEFT_ALT  &kp SPACE  &kp LEFT_SHIFT        &mo 1     &kp ENTER        &mo 2   &kp ENTER              &kp BACKSPACE  &kp RIGHT_SHIFT  &kp DELETE
+&kp ESC     &kp N1              &kp N2              &kp N3           &kp N4                &kp N5    &kp UP_ARROW     &kp N6              &kp N7                  &kp N8           &kp N9              &kp N0              &kp BACKSPACE
+&kp TAB     &kp Q               &kp W               &kp F            &kp P                 &kp B     &kp DOWN_ARROW   &kp J               &kp L                   &kp U            &kp Y               &kp SEMICOLON       &kp BSLH
+&kp LCTRL   &my_tap LEFT_WIN A  &my_tap LEFT_ALT R  &my_tap LCTRL S  &my_tap LEFT_SHIFT T  &kp G     &kp LEFT_ARROW   &kp M               &my_tap RIGHT_SHIFT N   &my_tap LCTRL E  &my_tap LEFT_ALT I  &my_tap LEFT_GUI O  &kp APOS
+&kp LSHFT   &kp Z               &kp X               &kp C            &kp D                 &kp V     &kp RIGHT_ARROW  &kp K               &kp H                   &kp COMMA        &kp DOT             &kp FSLH            &kp ENTER
+&kp C_MUTE  &kp LEFT_WIN        &kp LEFT_ALT        &kp ESCAPE       &kp SPACE             &mo 1     &kp ENTER        &tap_layer 2 ENTER  &tap_layer 3 BACKSPACE  &kp BACKSPACE    &kp RIGHT_SHIFT     &kp DELETE
             >;
 
             sensor-bindings = <&inc_dec_kp C_VOLUME_UP C_VOL_DN>;
